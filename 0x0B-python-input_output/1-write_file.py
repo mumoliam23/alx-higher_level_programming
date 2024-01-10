@@ -9,7 +9,7 @@ def write_file(filename="", text=""):
 ''' function that returns the number of lines of a text file
 '''
 
-
+#!/usr/bin/python3
 def number_of_lines(filename=""):
     ''' function: number_of_lines
     '''
