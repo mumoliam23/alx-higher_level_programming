@@ -7,11 +7,12 @@ function that inserts a line of text to a file, after each line containing a spe
 def append_after(filename="", search_string="", new_string=""):
     '''module Search and update
     '''
-    with open(filename) as r:
-        for line in r:
-            text += new_string
-            if search_string in line:
-                text += new_string
-
-    with open(filename, "w") as w:
-        w.write(text)
+    with open(filename, 'r+') as f:
+        lines = f.readlines()
+        i = 0
+        for line in lines:
+            if line.find(search_string) is not -1:
+                lines.insert(i + 1, new_string)
+            i += 1
+        f.seek(0)
+        f.write("".join(lines))
