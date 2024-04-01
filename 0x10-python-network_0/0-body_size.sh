@@ -1,5 +1,3 @@
 #!/bin/bash
-#Use a URL, send a request to the url and get the response size
-curl -sI "$url" | grep "Content-Length" | awk '{print $2}'
-
-
+# takes in a URL, sends a request to that URL, and displays size of the body of response in bytes
+url=$1; curl -s "$url" | wc -c
