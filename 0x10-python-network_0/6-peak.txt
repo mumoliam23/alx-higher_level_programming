@@ -1,2 +1,2 @@
-Complexity of code
 O(log(n))
+O(n)
