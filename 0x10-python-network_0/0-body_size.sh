@@ -1,5 +1,5 @@
 #!/bin/bash
-read url
-content_length=$(curl -sI "$url" | grep -i content-length | awk '{print $2}')
-echo "$content_length"
+#Use a URL, send a request to the url and get the response size
+curl -sI "$url" | grep "Content-Length" | awk '{print $2}'
+
 
