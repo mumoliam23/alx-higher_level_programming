@@ -1,3 +1,5 @@
 #!/bin/bash
-# send a request to an URL with curl, and displays the size of the body of the response
-curl -sI "$1" | grep 'Content-Length' | sed 's/^Content-Length: //'
+read url
+content_length=$(curl -sI "$url" | grep -i content-length | awk '{print $2}')
+echo "$content_length"
+
