@@ -6,17 +6,13 @@ Github API to display your id
 import requests
 from sys import argv
 
+if __name__ == '__main__':
 
-if __name__ == "__main__":
-    """
-    takes your Github credentials (username and password) and uses the
-    Github API to display your id
-    """
-    username = argv[1]
-    password = argv[2]
     url = 'https://api.github.com/user'
-    r = requests.get(url, auth=(username, password))
-    try:
-        print(r.json().get('id'))
-    except:
-        pass
+    user = argv[1]
+    token = argv[2]
+    headers = {'Authorization': 'token {}'.format(token)}
+
+    r = requests.get(url, headers=headers)
+
+    print(r.json().get('id'))
