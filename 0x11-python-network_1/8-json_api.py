@@ -5,20 +5,21 @@ Usage: ./8-json_api.py <letter>
   - The letter is sent as the value of the variable `q`.
   - If no letter is provided, sends `q=""`.
 """
-import sys
-import requests
+#!/usr/bin/python3
+""" search api module """
 
+
+import requests
+from sys import argv
 
 if __name__ == "__main__":
-    letter = "" if len(sys.argv) == 1 else sys.argv[1]
-    payload = {"q": letter}
-
-    r = requests.post("http://0.0.0.0:5000/search_user", data=payload)
+    data = {"q": argv[1] if len(argv) == 2 else ""}
+    response = requests.post('http://0.0.0.0:5000/search_user', data=data).json\
+()
     try:
-        response = r.json()
-        if response == {}:
-            print("No result")
+        if 'id' in response and 'name' in response:
+                print("[{}] {}".format(response['id'], response['name']))
         else:
-            print("[{}] {}".format(response.get("id"), response.get("name")))
+            print("No result")
     except ValueError:
         print("Not a valid JSON")
