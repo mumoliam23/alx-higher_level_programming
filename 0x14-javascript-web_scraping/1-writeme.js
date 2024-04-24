@@ -1,18 +1,13 @@
 #!/usr/bin/node
+let fs = require('fs');
+let file = process.argv[2];
+let content = process.argv[3];
 
-const fs = require('fs');
-
-if (process.argv.length !== 4) {
-  console.log('Usage: node script_name.js <file_path> <content>');
-  process.exit(1);
+function writeMe (file, content) {
+  fs.writeFile(file, content, function (err) {
+    if (err) {
+      console.log(err);
+    }
+  });
 }
-
-const filePath = process.argv[2];
-const content = process.argv[3];
-
-fs.writeFile(filePath, content, 'utf8', function(err) {
-  if (err) {
-    console.error(err);
-  }
-});
-
+writeMe(file, content);
