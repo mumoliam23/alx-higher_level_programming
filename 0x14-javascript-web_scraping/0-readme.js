@@ -1,17 +1,10 @@
 #!/usr/bin/node
+const fs = require('fs');
 
-let fs = require('fs');
-let file = process.argv[2];
-
-function readPrint(file) {
-  fs.readFile(file, 'utf-8', function(err, data) {
-    if (err) {
-      console.log("Error occurred while reading the file:", err);
-    } else {
-      console.log(data);
-    }
-  });
-}
-
-readPrint(file);
-
+fs.readFile(process.argv[2], 'utf-8', (err, data) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(data.toString());
+  }
+});
