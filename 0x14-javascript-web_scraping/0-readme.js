@@ -2,13 +2,16 @@
 
 const fs = require('fs');
 
-fs.readFile(process.argv[2], 'utf8', function (error, content) {
+const filePath = process.argv[2];
 
-  if (error) {
-    console.error('Error reading the file:', error);
-
-  } else {
-    console.log(content);
-  }
+if (!filePath) {
+	console.error('Please provide a file path as an argument.');
+	process.exit(1);
+}
+fs.readFile(filePath, 'utf-8', (err, data) => {
+	if (err) {
+		console.error(err);
+	}  else {
+		console.log(data.toString());
+	}
 });
-
