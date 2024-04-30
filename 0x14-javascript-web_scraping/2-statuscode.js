@@ -9,15 +9,15 @@ if (!url) {
   process.exit(1);
 }
 request(url, (error, response, body) => {
-  if (error) {
-    console.error('Error: ', error.message);
-    process.exit(1);
-	} else {
-		if (response && response.statusCode) {
-		  console.log('code: ', response.statusCode);
-		} else {
-			console.error('Error: ', error.message);
-			process.exit(1);
-		}
-	}
+if (error) {
+  console.error('Error: ' , error.message);
+  process.exit(1);
+} else {
+    if (response && response.statusCode) {
+	  console.log('code: ', response.statusCode);
+    } else {
+	  console.error('Error: ', error.message);
+	  process.exit(1);
+    }
+}
 });
