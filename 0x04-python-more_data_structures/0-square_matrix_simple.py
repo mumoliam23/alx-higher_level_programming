@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-def square_matrix_simple(matrix):
+def square_matrix_simple(matrix=[]):
      # Create a new matrix to store squared values
      square_matrix = []
 
