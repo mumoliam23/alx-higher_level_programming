@@ -11,5 +11,5 @@ def roman_to_int(roman_string):
             equivalent_int += int_value
         else:
             equivalent_int -= int_value
-            prev_int_value = equivalent_int
+        prev_int_value = equivalent_int
     return equivalent_int
